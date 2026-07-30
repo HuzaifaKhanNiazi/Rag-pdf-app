@@ -41,4 +41,3 @@ input_variables=["context","question"]
 
     except Exception as e:
         return JSONResponse(status_code=404,content=str(e))
-
