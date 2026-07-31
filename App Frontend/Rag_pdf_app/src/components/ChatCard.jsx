@@ -6,28 +6,17 @@ export const ChatCard = () => {
         src={logoimg}
         alt=""
         style={{
-          height: "80px",
-          width: "80px",
+          height: "5rem",
+          width: "5rem",
           objectFit: "cover",
           background: "none",
         }}
       />
-      <span style={{ display: "flex", gap: "3px", margin: "10px" }}>
+      <span style={{ display: "flex", gap: "0.188rem", margin: "0.625rem" }}>
         <h1 style={{ color: "orange" }}>Ask</h1>
         <h1 style={{ color: "blue" }}>PDF</h1>
       </span>
-      <p>Ask anything about your documents</p>
-      {/* <p
-        style={{
-          margin: "10px",
-          color: "lightgrey",
-          fontSize: "13px",
-          textAlign: "center",
-        }}
-      >
-        Upload your document using sidebar and then <br />
-        start question answering
-      </p> */}
+      <p style={{ textAlign: "center" }}>Ask anything about your documents</p>
     </div>
   );
 };

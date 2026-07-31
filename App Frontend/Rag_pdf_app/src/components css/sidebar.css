@@ -1,19 +1,19 @@
 .sidebar-div {
-  height: 100%;
-  width: 22%;
+  height: 100vh;
+  width: 270px;
+  font-size: 1rem;
   background-color: white;
   display: flex;
   align-items: flex-start;
-  /* justify-content: center; */
   flex-direction: column;
+  flex-shrink: 0;
   overflow: hidden;
   transition: 0.3s;
-  /* display: none; */
 }
 
 .sidebar-div.active {
-  height: 100%;
-  width: 4%;
+  height: 100vh;
+  width: 40px;
   overflow: hidden;
 }
 .sidebar-div.active .sidebar-openclose-div {
@@ -41,7 +41,7 @@
 .sidebar-nav {
   position: relative;
   width: 100%;
-  height: 50px;
+  height: 3.12rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,7 +50,7 @@
   border-bottom: 1px solid lightgray;
 }
 .sidebar-nav .logo {
-  height: 50px;
+  height: 3.12rem;
   width: auto;
   display: flex;
   align-items: center;
@@ -59,20 +59,20 @@
 }
 
 .sidebar-history-options {
-  /* background-color: cadetblue; */
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
+  transition: 0.3s;
 }
 .options-div {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 0.625rem;
   height: auto;
   width: 100%;
   margin-top: 5px;
-  gap: 7px;
+  gap: 0.432rem;
   flex-grow: 0;
 }
 .options-div .newchat-div {
@@ -81,6 +81,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-wrap: nowrap;
   gap: 5px;
   padding: 5px;
   padding-left: 5px;
@@ -95,6 +96,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-wrap: nowrap;
   gap: 5px;
   padding: 5px;
   padding-left: 5px;
@@ -111,15 +113,14 @@
 }
 .uploaddocs-input {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 1.25rem;
   height: fit-content;
-  padding: 10px;
+  padding: 0.625rem;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 .uploaddocs-input p {
-  /* background-color: orange; */
   font-size: small;
   font-weight: 550;
   color: lightslategrey;
@@ -128,13 +129,12 @@
   display: inline-block;
   background-color: #4f46e5;
   color: white;
-  padding: 12px 24px;
+  padding: 0.7rem 1.5rem;
   font-family: sans-serif;
-  font-size: 14px;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
 }
 .uploaddocs-input input:hover {
@@ -207,6 +207,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -220,15 +221,14 @@
 .subchats:hover {
   background-color: #ececec;
 }
-
 .search-chats-div {
   background-color: #eaeaea;
-  height: 400px;
-  width: 600px;
+  height: 25rem;
+  width: 37.5rem;
   padding: 20px;
   border-radius: 25px;
   position: absolute;
-  left: 50%;
+  left: 55%;
   top: 40%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -236,35 +236,34 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  z-index: 2000;
   background-image:
     radial-gradient(
       circle at 10% 90%,
       rgba(240, 195, 245, 0.6) 0%,
       transparent 50%
     ),
-    /* Soft pink/purple bottom left */
     radial-gradient(
-        circle at 90% 40%,
-        rgba(244, 215, 235, 0.4) 0%,
-        transparent 60%
-      ),
-    /* Pale pink middle right */
+      circle at 90% 40%,
+      rgba(244, 215, 235, 0.4) 0%,
+      transparent 60%
+    ),
     radial-gradient(
-        circle at 100% 100%,
-        rgba(230, 235, 255, 0.7) 0%,
-        transparent 40%
-      ); /* Soft blue bottom right */
+      circle at 100% 100%,
+      rgba(230, 235, 255, 0.7) 0%,
+      transparent 40%
+    );
 }
 .search-chats-div .search-input-div {
-  height: 50px;
+  height: 3.12rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 .search-input-div input {
-  padding: 10px;
+  padding: 0.625rem;
   flex: 1;
   border: none;
   outline: none;
@@ -273,11 +272,11 @@
 .search-input-history {
   height: 400px;
   width: 100%;
-  padding: 10px;
+  padding: 0.625rem;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  gap: 10px;
+  gap: 0.625rem;
 }
 .search-input-history p {
   font-size: small;
@@ -302,4 +301,44 @@
 }
 .subchats-history:hover {
   background-color: #ececec;
+}
+
+@media screen and (max-width: 481px) {
+  .search-chats-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+    z-index: 2000;
+    height: 100dvh;
+    width: 100vw;
+    box-sizing: border-box;
+    margin: 0;
+    border-radius: 0px;
+  }
+  .search-input-history {
+    flex: 1;
+  }
+}
+@media (max-width: 1025px) {
+  .sidebar-div {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    height: 100vh;
+    width: 300px;
+  }
+}
+@media (max-width: 720px) and (min-width: 580px) {
+  .search-chats-div {
+    height: 360px;
+    width: 500px;
+  }
+}
+@media (max-width: 580px) and (min-width: 481px) {
+  .search-chats-div {
+    height: 360px;
+    width: 450px;
+  }
 }

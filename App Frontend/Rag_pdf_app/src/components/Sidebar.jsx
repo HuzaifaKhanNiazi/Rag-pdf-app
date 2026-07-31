@@ -13,8 +13,8 @@ export const Sidebar = () => {
             src={logonav}
             alt="app-logo"
             style={{
-              height: "45px",
-              width: "45px",
+              height: "2.213rem",
+              width: "2.213rem",
               objectFit: "contain",
               background: "none",
             }}

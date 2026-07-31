@@ -12,8 +12,6 @@ export const SidebarFeatures = () => {
     handleNewChat,
     isSearchOpen,
     setIsSearchOpen,
-    search,
-    setSearch,
   } = useContext(AppContext);
   return (
     <div className="sidebar-history-options">

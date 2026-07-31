@@ -14,18 +14,20 @@
   flex: 1;
   width: 80%;
   overflow: hidden;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 .container2 .input-div {
   background-color: #ffff;
   border: 2px solid lightgrey;
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   width: 75%;
   height: auto;
   justify-content: space-between;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 10px 10px 20px 10px;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+  margin: 0.625rem 0.625rem 1.2rem 0.625rem;
   flex-shrink: 0;
 }
 .container2 .input-div input {
@@ -33,14 +35,14 @@
   outline: none;
   border: none;
   background: none;
-  font-size: medium;
+  font-size: 0.8rem;
   color: rgb(122, 120, 120);
   margin-left: 5px;
 }
 
 .container2 .input-div .sendmsg-div {
-  height: 30px;
-  width: 30px;
+  height: 1.9rem;
+  width: 1.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,8 +80,8 @@
 .chats-area {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding: 10px 15px;
+  gap: 0.938rem;
+  padding: 0.625rem 0.938rem;
   height: 86%;
   flex-shrink: 0;
   flex-grow: 0;
@@ -91,7 +93,7 @@
   align-self: flex-end;
   background-color: #4a90e2;
   color: #fff;
-  padding: 10px 15px;
+  padding: 0.625rem 0.938rem;
   border-radius: 15px 15px 0 15px;
   max-width: 70%;
   word-wrap: break-word;
@@ -102,7 +104,7 @@
   align-self: flex-start;
   background-color: #ffffff;
   color: #222;
-  padding: 10px 15px;
+  padding: 0.625rem 0.938rem;
   border-radius: 15px 15px 15px 0;
   max-width: 70%;
   word-wrap: break-word;
@@ -124,7 +126,7 @@
 }
 .loading-msg .dot {
   height: 10px;
-  width: 10px;
+  width: 0.625rem;
   border-radius: 50%;
   background-color: rgb(237, 239, 241);
   animation: animatedots 1.8s ease-in-out infinite;
@@ -149,11 +151,10 @@
   justify-content: center;
   position: absolute;
   top: 10%;
-  left: 33%;
-  padding: 10px;
+  left: 31%;
   transform: translate(-50%, -50%);
+  padding: 0.625rem;
   animation: slideUp 0.6s ease-out forwards;
-  /* display: none; */
 }
 @keyframes slideUp {
   from {
@@ -175,5 +176,36 @@
   }
   50% {
     transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 1025px) {
+  body {
+    font-size: 0.8rem;
+  }
+  .container2 .input-div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 481px) {
+  .chats-area .chatbot-card {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+  }
+  .container2 .input-div {
+    padding: 5px;
+    width: 95%;
+  }
+  .container2 {
+    margin-left: 2.4rem;
+    width: 90%;
+  }
+  .chats-area .user-msg {
+    font-size: 12px;
+  }
+  .chats-area .bot-msg {
+    font-size: 12px;
   }
 }

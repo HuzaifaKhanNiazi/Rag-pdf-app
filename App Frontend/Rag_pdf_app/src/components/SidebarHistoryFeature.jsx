@@ -18,7 +18,7 @@ export const SidebarHistoryFeature = ({ chatId }) => {
         width: "40%",
         display: "flex",
         justifyContent: "space-between",
-        padding: "3px 10px 3px 10px",
+        padding: "0.188rem 0.625rem 0.188rem 0.625rem",
         cursor: "pointer",
         color: "gray",
       }}
