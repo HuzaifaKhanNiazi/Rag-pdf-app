@@ -27,7 +27,6 @@ export const App = () => {
       setUploadMessage("Please upload a file first");
       return;
     }
-    setIsUpload(true);
     if (!isOnline) {
       setUploadMessage("No internet connection");
       return;
@@ -40,21 +39,27 @@ export const App = () => {
       setUploadMessage("Please upload a file first");
       return;
     }
+
     if (!value.trim()) return;
-    const currprompt = value;
-    setChat((prev) =>
-      prev.map((c) => (c.id === activeChatId ? { ...c, card: false } : c)),
-    );
-    setValue("");
-    setDisable(true);
-    setLoadingmsg(true);
+
     if (!isOnline) {
       setUploadMessage("No internet connection");
       return;
     }
-    await chatsHandler(currprompt);
-    setLoadingmsg(false);
-    setDisable(false);
+
+    const currentPrompt = value;
+
+    setValue("");
+
+    setDisable(true);
+    setLoadingmsg(true);
+
+    try {
+      await chatsHandler(currentPrompt);
+    } finally {
+      setDisable(false);
+      setLoadingmsg(false);
+    }
   };
 
   const handleFileChange = (e) => {
@@ -78,6 +83,7 @@ export const App = () => {
         throw new Error(data.detail || "upload Failed");
       }
       setUploadMessage(`${data.filename} uploaded successfully`);
+      setIsUpload(true);
     } catch (error) {
       setUploadMessage(`${error.message}`);
     } finally {
@@ -106,7 +112,7 @@ export const App = () => {
     );
     let data;
     try {
-      const response = await fetch("http://127.0.0.1:8000/usermessage", {
+      const response = await fetch(`${API}/usermessage`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -190,12 +196,11 @@ export const App = () => {
   };
 
   const handleNewChat = () => {
-    const Newchat = createNewchat();
-    setChat((prev) => {
-      const updated = [Newchat, ...prev];
-      return updated;
-    });
-    setActiveChatId(Newchat.id);
+    const newChat = createNewchat();
+
+    setChat((prev) => [newChat, ...prev]);
+
+    setActiveChatId(newChat.id);
   };
   useEffect(() => {
     const initialChat = createNewchat();
