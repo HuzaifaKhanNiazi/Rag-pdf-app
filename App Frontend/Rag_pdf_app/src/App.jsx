@@ -202,6 +202,25 @@ export const App = () => {
     setChat([initialChat]);
     setActiveChatId(initialChat.id);
     setHistoryChatOpen(true);
+    const goOnline = () => setIsOnline(true);
+    const goOffline = () => setIsOnline(false);
+
+    window.addEventListener("online", goOnline);
+    window.addEventListener("offline", goOffline);
+    const handleResize = () => {
+      if (window.innerWidth < 1025) {
+        setIsSidebarOpen(false);
+      } else {
+        setIsSidebarOpen(true);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("online", goOnline);
+      window.removeEventListener("offline", goOffline);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handlekey = (e) => {
@@ -214,31 +233,6 @@ export const App = () => {
     }
   };
 
-  useEffect(() => {
-    const goOnline = () => setIsOnline(true);
-    const goOffline = () => setIsOnline(false);
-
-    window.addEventListener("online", goOnline);
-    window.addEventListener("offline", goOffline);
-    return () => {
-      window.removeEventListener("online", goOnline);
-      window.removeEventListener("offline", goOffline);
-    };
-  }, []);
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 1025) {
-        setIsSidebarOpen(false);
-      } else {
-        setIsSidebarOpen(true);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   return (
     <AppContext.Provider
       value={{
